@@ -66,7 +66,7 @@ def test_settings_should_change_document_ttl(jp_configurable_serverapp):
     argv = ["--SQLiteYStore.document_ttl=3600"]
 
     app = jp_configurable_serverapp(argv=argv)
-    collaboration = jp_serverapp.web_app.settings["jupyter_server_ydoc"]
+    collaboration = jp_configurable_serverapp.web_app.settings["jupyter_server_ydoc"]
     assert collaboration.ystore_class.document_ttl == 3600
 
  
