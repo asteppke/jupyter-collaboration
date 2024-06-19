@@ -66,9 +66,9 @@ def test_settings_should_change_document_ttl(jp_configurable_serverapp):
     argv = ["--SQLiteYStore.document_ttl=3600"]
 
     app = jp_configurable_serverapp(argv=argv)
-    collaboration = jp_configurable_serverapp.web_app.settings["jupyter_server_ydoc"]
-    assert collaboration.ystore_class.document_ttl == 3600
+    settings = app.web_app.settings["jupyter_server_ydoc_config"]
 
+    assert settings["ystore_class"].document_ttl == 3600
  
 @pytest.mark.parametrize("copy", [True, False])
 async def test_get_document_file(rtc_create_file, jp_serverapp, copy):
