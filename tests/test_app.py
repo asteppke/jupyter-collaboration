@@ -69,7 +69,7 @@ def test_settings_should_change_document_ttl(jp_configurable_serverapp):
     collaboration = jp_serverapp.web_app.settings["jupyter_server_ydoc"]
     assert collaboration.ystore_class.document_ttl == 3600
 
-
+ 
 @pytest.mark.parametrize("copy", [True, False])
 async def test_get_document_file(rtc_create_file, jp_serverapp, copy):
     path, content = await rtc_create_file("test.txt", "test", store=True)
